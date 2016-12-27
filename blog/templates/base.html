@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Brian Jinwright{% endblock %}</title>
+    <title>{% block title %}Databeard{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel='icon' href='favicon.ico' type='image/x-icon'/ >
+<link rel='icon' href="{% static 'favicon.ico' %}" type='image/x-icon'/ >
     {% block head %}{% endblock %}
     {% block css %}
     <link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans|Permanent+Marker" rel="stylesheet">
@@ -17,7 +17,7 @@
 <div class="content">
 <nav>{% block nav %}
     <ul>
-        <li class="logo"><a href="{% url 'post-list' %}">Jinwright</a></li>
+        <li class="logo"><a href="{% url 'post-list' %}">Databeard</a></li>
     </ul>
     {% endblock %}
 </nav>
@@ -33,7 +33,6 @@
     {% endcache %}
 
 <a href="{% url 'feed' %}" class="button rss-feed">RSS Feed</a>
-<a href="http://feedly.com/i/welcome/feed/https://www.jinwright.net/feed/" class="button feedly">Follow on Feedly</a>
 </aside>
 </div>
 

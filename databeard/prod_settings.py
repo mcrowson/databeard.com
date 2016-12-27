@@ -24,12 +24,12 @@ PROJECT_PATH = Path(__file__).absolute().ancestor(1)
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY','YourAppSucks323')
+SECRET_KEY = env('SECRET_KEY', 'YourAppSucks323')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG',False,var_type='boolean')
+DEBUG = env('DEBUG', False, var_type='boolean')
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS',['127.0.0.1','.execute-api.us-east-1.amazonaws.com'],var_type='list')
+ALLOWED_HOSTS = env('ALLOWED_HOSTS', ['127.0.0.1', '.execute-api.us-east-1.amazonaws.com'], var_type='list')
 CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
 
 # Application definition
@@ -60,7 +60,7 @@ SITE_ID = env('SITE_ID',1,var_type='integer')
 
 LOGIN_URL = env('LOGIN_URL','/admin/login/')
 
-ROOT_URLCONF = 'bjinwright.urls'
+ROOT_URLCONF = 'databeard.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'bjinwright.wsgi.application'
+WSGI_APPLICATION = 'databeard.wsgi.application'
 
 
 # Database
@@ -92,16 +92,6 @@ DATABASES = {
         'PASSWORD':env('DATABASE_PASSWORD'),
         'HOST':env('DATABASE_HOST'),
         'PORT':env('DATABASE_PORT')
-    }
-}
-
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://{0}".format(env('REDIS_HOST','localhost:6379')),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient"
-        }
     }
 }
 
@@ -159,9 +149,9 @@ S3DIRECT_REGION = env('S3DIRECT_REGION','us-east-1')
 STATICFILES_LOCATION = env('STATICFILES_LOCATION','bjinwright_static')
 STATICFILES_STORAGE = env('STATICFILES_STORAGE','util.custom_storages.StaticStorage')
 
-STATIC_URL = env('STATIC_URL','/bjinwright-dev-static/')
+STATIC_URL = env('STATIC_URL','/databeard-dev-static/')
 MEDIAFILES_LOCATION = env('MEDIAFILES_LOCATION','bjinwright_media')
-MEDIA_URL = env('MEDIA_URL','/bjinwright-dev-media/')
+MEDIA_URL = env('MEDIA_URL','/databeard-dev-media/')
 DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE','util.custom_storages.MediaStorage')
 
 S3DIRECT_DESTINATIONS = {
